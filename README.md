@@ -61,16 +61,22 @@ PS C:\test> filter ToIndent {
 ```
 use filter
 ```powershell
-tree /F /A | ToIndent
+tree /F /A [TARGET_DIRECTORY] | ToIndent
 ```
 ### example
 tree command only
 ```powershell
-PS C:\test> tree .\directory0
+PS C:\test> tree .\directory0 /F /A
 C:\TEST\DIRECTORY0
-└─directory1
-    └─directory2
-        └─directory3
+|   file1
+|
+\---directory1
+    |   file2
+    |
+    \---directory2
+        |   file3
+        |
+        \---directory3
 PS C:\test>
 ```
 tree commnad with filter
