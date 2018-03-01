@@ -1,0 +1,22 @@
+// 秀丸エディタマクロファイル
+
+// usege
+// 1 tree /F /A > tree.txt
+// 2 run this macro.
+
+// ウィンドウ最小化
+showwindow 2;
+
+// 置換
+replaceallfast "^(.*[+,\\\\]-.*)$" ,"\\1\\\\", regular
+replaceallfast "\|   " ,"\t";
+replaceallfast "\+---" ,"\t";
+replaceallfast "\\---" ,"\t";
+replaceallfast "    ",  "\t";
+replaceallfast "\t+\n",  "", regular;
+
+// ファイル先頭にカーソル移動
+gofiletop
+
+// ウィンドウ最小化解除
+showwindow 1;
