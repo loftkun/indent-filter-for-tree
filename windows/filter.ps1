@@ -1,4 +1,4 @@
-filter ToIndent {
+filter IndentFilter {
 	% { $_ -replace "^(.*[+,\\\\]-.*)$","$&\" } |
 	% { $_ -replace "\|   " ,"`t" }  |
 	% { $_ -replace "\+---" ,"`t" }  |

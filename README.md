@@ -50,18 +50,19 @@ $
 ### Usage
 create filter (see filter.ps1.)
 ```powershell
-PS C:\test> filter ToIndent {
->> % { $_ -replace "^(.*[+,\\\\]-.*)$","$&\" } |
->> % { $_ -replace "\|   " ,"`t" }  |
->> % { $_ -replace "\+---" ,"`t" }  |
->> % { $_ -replace "\\---" ,"`t" }  |
->> % { $_ -replace "    "  ,"`t" }  |
->> % { If ( $_ -notmatch "`t+$" ){$_} }
->> }
+PS C:\test> filter IndentFilter {
+% { $_ -replace "^(.*[+,\\\\]-.*)$","$&\" } |
+% { $_ -replace "\|   " ,"`t" }  |
+% { $_ -replace "\+---" ,"`t" }  |
+% { $_ -replace "\\---" ,"`t" }  |
+% { $_ -replace "    "  ,"`t" }  |
+% { If ( $_ -notmatch "`t+$" ){$_} }
+}
 ```
+
 use filter
 ```powershell
-tree /F /A [TARGET_DIRECTORY] | ToIndent
+tree /F /A [TARGET_DIRECTORY] | IndentFilter
 ```
 ### example
 tree command only
@@ -81,7 +82,7 @@ PS C:\test>
 ```
 tree commnad with filter
 ```powershell
-PS C:\test> tree .\directory0 /F /A | ToIndent
+PS C:\test> tree .\directory0 /F /A | IndentFilter
 C:\TEST\DIRECTORY0
         file1
         directory1\
